@@ -23,7 +23,9 @@ ren ---> cdm
 
 rectangle Обновление {
 
-rectangle "empty " as e #transparent;line:transparent;text:transparent
+rectangle "Новые свойства" as props #transparent;line:transparent
+rectangle "setState()" as state #transparent;line:transparent
+rectangle "forceUpdate()" as fu #transparent;line:transparent
 rectangle " static getDerivedStateFromProps(props, state) " as gdsfp #palegreen
 rectangle "componentWillReceiveProps(nextProps)" as cwrp #pink;line.dashed
 rectangle "shouldComponentUpdate(nextProps, nextState)" as scu
@@ -32,7 +34,9 @@ rectangle " render() " as r #lightblue
 rectangle "getSnapshotBeforeUpdate(prevProps, prevState)" as gsbu
 rectangle "componentDidUpdate(prevProps, prevState, snapshot)" as cdu
 
-e --> gdsfp
+props -D-> gdsfp
+state -D-> gdsfp
+fu -D-> gdsfp
 gdsfp --> cwrp
 cwrp --> scu
 scu --> cwu : " true"
@@ -62,4 +66,4 @@ gdsfe -------> cdc
 @enduml
 ```
 
-![test](http://www.plantuml.com/plantuml/png/dLHVQnD147_VJp4aBn4IKHyhI37LDq4QnEVjxUHoz6xtcDrj5Ic8Jtu84Jz258gbsdw6xJTozlRYNKeIsWQoDpStVtxpcvdTjqwIyrKfx76XQqco0iBCIPsN29_4eV5QJGrf97ZsHDY5LEQqq3dCPMbHd0dHMOTluJfStNm95pUVMVeLbk4gN8Hp3jEp6cH6MqS-SuP6DPdQFXg0jC3glXNZSaK6ERe3fE84rOmL-9fCzJRw9CynH3DC0N9bv_LJ6DQon9mGzNhIgZOQjNjVbEKRBigDshId5RiK-lXvMMXyhAHTeEfx4cg5r5hp2mpB8b-uezBZnWG7XLgBhoeXk3QOJ5wq44Lwi2Rg68288A9C3MWDwGDxhlFxFVnaHYEpVyBvHcwngjr7Q18Z31r9RRcdZAgfRg-lSFZ1zHNzC70lzg6Z_oxi7sA67385qeoYaLRTe7ftE-p2-59DLm7VrOeXT6764CLPDnKsyrkHx7HESFnkDD1EHyi1RHaEvd6cPStOtKkS6y8sSqruqcQEOYzpRe_yjl7QuSmjQVEifiyBWTtifT6BxmtLWe_q5cdYV_l5mnuNvCZZW4sIbWJ5PqB6Hskh_AqX_S5h_plylSjLaARruMEwtanThQsrhuH82IRfbogxjLE3k5ICSSchTSruByCIMFZAO5aHBWSR5wpTiEg-sFkHDkpMAo938undTwLjlMMcqcMBP3s6Gi_DgkLPBFn_pr4q9tGaiC6Ps4UjV5N-0m00)
+![test](http://www.plantuml.com/plantuml/png/bLHVQnGn47_FfmZNbmezKHzRa6AhRu9KnETqCxUtT3S9awHLf61z4lmAAdw4MYZMQliPSj_8oSqkjrVkpkj2iiba_izlPjS7XI4sjV17bN4ALICHYg1CMOFy80viD7hFeW6KJnu9FrRQdbIcb2DLUn2dGiouqzTqcsucdzBLv2ETBj9vkabNwPBKzBW6XJK-O2o2nKs7rla70wcy97AVY_mALI5B2Fk0rJ7erqI05sYRLrc69RTaPWDMK6e_Se_bXbCrb0XWveqspXemuMrLroyfgB3PcZrfIAGoHpjrPU2XLduCkY-9O3HWoqqNkL5NvJWSrX4M6jYlz9n-tGX1iSdXy6dhek0VKOYM7H2qydjMBsX9VY39-Vn-JpyfepcpVzBbmjocR_bvyeKU9cVfWYw_9sTK4Qh5r9jfrkH6G6Ky5HjCc8QztIFC5G72DEqS2oTxVUcHnGBUE3rJC8hhIyjx8K3E8B0E0WwW05B9YWoy2zDJXmXqgo7XnpRMUgzJo27Er6n9EdBYshmLSQad_nKkJk9gRsI7KCu1BW5eIRKqof7luHbGQRhAE8JZrd8-zYoN_Z0kW_WAOIf9QwVhW2W40s-utpM1O2pr2AFOlt4bkJ_G2ThubbD9gts9Sfk23XXXG2nCHO7vpzxJrlBgUAUPVj1u-fN-hZEoe77X_MhaxWIgMf-mlE2ccHi_iH623GpvuyZkzFuWDp_vU4uZu9RylKxdaWwVqrKcfEl1dK706XaHqDpNzxwc1Vtt7D7Y9kHzDdgNJiCz5OenSs_9oeni1uk20kUvn_BJNSwIG0odOXUCZatz3m00)
