@@ -109,7 +109,7 @@ gdsfeCom -[hidden]-> cdcCom
 ```
 
 Второй вариант
-```
+```plantuml
 @startuml
 skinparam rectangle {
 RoundCorner 20
