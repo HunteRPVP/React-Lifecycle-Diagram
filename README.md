@@ -126,10 +126,13 @@ rectangle "static getDerivedStateFromProps(props, state)" as gdsfp1 #palegreen
 rectangle "componentWillMount()" as cwm #pink;line.dashed
 rectangle "render()" as ren #lightblue
 rectangle "componentDidMount()" as cdm
-rectangle "Running" as run
+rectangle "Running" as run #RoyalBlue;text:white
+rectangle " Running " as run1 #RoyalBlue;text:white
+rectangle "  Running  " as run2 #RoyalBlue;text:white
 rectangle " static getDerivedStateFromProps(props, state) " as gdsfp #palegreen
 rectangle "componentWillReceiveProps(nextProps)" as cwrp #pink;line.dashed
 rectangle "shouldComponentUpdate(nextProps, nextState)" as scu
+rectangle " " as space
 rectangle "componentWillUpdate(nextProps, nextState)" as cwu #pink;line.dashed
 rectangle " render() " as r #lightblue
 rectangle "getSnapshotBeforeUpdate(prevProps, prevState)" as gsbu
@@ -145,17 +148,23 @@ gdsfp1 --> cwm : " deprecated"
 cwm --> ren
 ren --> cdm
 cdm --> run
-run --> gdsfp : props changed
-run --> scu : state changed
-gdsfp --> cwrp
+run --> gdsfp : " props changed"
+run --> scu : "state changed"
+gdsfp --> cwrp : "deprecated"
 cwrp --> scu
-scu --> run : false
-scu --> cwu : " true"
+scu -R-> space : "false"
+space -U-> run
+scu --> cwu : "  true"
 cwu --> r
 r --> gsbu
 gsbu --> cdu : snapshot
-cdu --> run
+cdu -U-> space
+
+run1 --> cwum : " unmount"
+cwum --> run2 #line:transparent
+run2 --> gdsfe : " child component error"
+gdsfe --> cdc
 @enduml
 ```
 
-![test](http://www.plantuml.com/plantuml/png/bLJFRjGy4B_xAQpqqa_gLX-8KokXqYsSG48j5USqdasYJMnhRBUigag84mSU0H2FK90ggaBx3Eahy2ICCnjjjkekMqjnxFa_lndFZlCf-b1NmerBRLDCQucG-LJd5SXJiM-2LaE36b0-_b-u8bNcfDIv7AML0t4cUdfLgS5FB4XhgacytCSpw0lJOwI8vkHDKMPZ3Sx99ptMiyWQcigWV5dcXJyOJtQh04BC0cm-DpVDzUs7vlBsFPr-DEVDTNFPNCZJlbII6UqyXimRNBTehFilaQcJHEvB4HI-p6GEVW-mF0PrG0HuWQP-7NLOSqEwI6K3kN8Z-qYksRI2707qlDFQ6WtQloshwXNXwDUdRazgKYdrU3kYigbILu3gQo9e1JYLfejSgsB-HvJylGxsIZLdNzL2K6voC7Ww3L7mZoX4Ym48-be-ja5hoGpIF9l3zslpdH2DoFvgBkx5rXUbssoXQPst9xdcCTNEfcJPjrbkzGXpc8DlKURG6TlLjKS6CpYqQcPW55RNbWygk9nLV9M2xqC6P98DQNZdsrFN06YNTu0hJAZKi3F8AR8PZecE3DmKjopqrVzy-IHfiJCqxXy5sVPaRGj1BSncQG2SKbYUaUoQcgF21JsTKp_er5B-VXUel5rrBSBnr7CyzZpdxYWiUXLBbAciKp_Temb2SFCEzhft8xWVUuHHwD-u6_X9eHMqyIsMWpuvE1p4AvTWIoRjq9JTIbePrWwHBJq6ICWCKr5W_7E6SMDP5UwyqMyqzNuslrUPX51RFrcb6Ng4nKsXwxcf5ceXsC605sTsPwGaSQPGZESqMMuetglcNDBXOtCP2SrLScU-i4Nk6gWV6ljgy_qvei5rYFjii2-SjSFKPmLBRyXIZqpNGHdbprELzTjTph1GMOHY1xGATVKN)
+![test](http://www.plantuml.com/plantuml/png/fLHDRzGy4BxxLuosbxvIznMjEBKIAjq29oIqfUBishE9jOvjZUqkAyH_nnz9aw2c5759x9bvdldmOr_xm2d4JZE_LyPnuXqGYi1Den5-iAsDHcui6IIuUCDyowKzADF0ZckFx2URuBGo68uEmLbzp9ldV9P2QoSEJcGFNribzWQzXxSJr_lisbXj2MuvxJyHFp8s5hSIrlX0KGHBfuwiy_-jW7j8vccK3pme0Gs6MoJrYF8k6V0ZsUvBnbJa6VXihGIDz3jt3YUEQsm8qSoJTiuQDE6RqlgpZIQSzcaFNO8eix_AlVulkMzHJf64HYBrqMa39rerRNZG4PzDSAlaZ5zsqx1jD4QPffB5HBQrHwvl4jbLmE_Xyj2gCEE57W43vFmLc2VG4-hY5QY_6ZcCCt_DoBSeC55M8fFobzLm1EHUFWFVsgZbPY2yTv8776dE82_lHYbu4MUTLQFZ0XSB_2EdECINYuH1AVtG5uJIOBWptAMMmWtkB66VsH4-zfdpSfAvyGznIMelWDD9zNa69KvPi7FX22U1kF6EKs8hVLrE3LadKyFoy4mtkr9nflcQgau5kt_8kIpG3qIMJZ5_nyTWyNvkU11jZJu3PNPs691WJ5W3w_Mx_ZLXzLSi-QMuJ5r8T8cN1vGhbctPHqNw5Pbll92zFIPxd30MXdAHGBIfj4mo17WHixlShz5RORK0AlXv0UG6CCi4wstUPAddqFBShrZTh-zhHIMk4fQ4084YPgvg9aRvNtMNFtrRENYG54lRIbYlLMvY65EiSufL58MtJgE-GxyVEIlcOK9OiA9LMiBJcK4vgpeBxAiHx1gDZ9t-1G00)
