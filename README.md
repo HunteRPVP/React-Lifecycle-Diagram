@@ -1,5 +1,6 @@
 # React-Lifecycle-Diagram
 
+Первый вариант:
 ```plantuml
 @startuml
 skinparam rectangle {
@@ -107,39 +108,54 @@ gdsfeCom -[hidden]-> cdcCom
 @enduml
 ```
 
+Второй вариант
 ```
-rectangle "Описание методов" {
+@startuml
+skinparam rectangle {
+RoundCorner 20
+shadowing false
+}
 
-rectangle "constructor(props)\nконструктор компонента React" as conCom
-rectangle "static getDerivedStateFromProps(props, state)\nвызывается непосредственно\nперед вызовом метода\nrender, как при начальном монтировании,так\nи при последующих обновлениях." as gdsfpCom #palegreen
-rectangle "componentWillMount()\nвызывается непосредственно\n перед монтированием." as cwmCom #pink;line.dashed
-rectangle "render()\nединственный обязательный метод\n в классовом компоненте." as renCom #lightblue
-rectangle "componentDidMount()\nвызывается сразу после\n монтирования (то есть, вставки\n компонента в DOM)." as cdmCom
+skinparam linetype polyline
+skinparam linetype ortho
+skinparam arrowThickness 4
+skinparam ArrowColor DarkGray
 
-rectangle "componentWillReceiveProps(nextProps)\nвызывается до того, как\n смонтированный компонент\n получит новые пропсы." as cwrpCom #pink;line.dashed
-rectangle "Используйте shouldComponentUpdate(nextProps, nextState),\n чтобы указать необходимость следующего\n рендера на основе изменений\n состояния и пропсов." as scuCom
-rectangle "componentWillUpdate(nextProps, nextState)\nвызывается непосредственно перед рендером\n при получении новых пропсов или состояния." as cwuCom #pink;line.dashed
-rectangle "getSnapshotBeforeUpdate(prevProps, prevState)\nвызывается прямо перед\n этапом «фиксирования» (например, перед\n добавлением в DOM)." as gsbuCom
-rectangle "componentDidUpdate(prevProps, prevState, snapshot)\nвызывается сразу после обновления." as cduCom
+rectangle "constructor(props)" as con
+rectangle "static getDerivedStateFromProps(props, state)" as gdsfp1 #palegreen
+rectangle "componentWillMount()" as cwm #pink;line.dashed
+rectangle "render()" as ren #lightblue
+rectangle "componentDidMount()" as cdm
+rectangle "Running" as run
+rectangle " static getDerivedStateFromProps(props, state) " as gdsfp #palegreen
+rectangle "componentWillReceiveProps(nextProps)" as cwrp #pink;line.dashed
+rectangle "shouldComponentUpdate(nextProps, nextState)" as scu
+rectangle "componentWillUpdate(nextProps, nextState)" as cwu #pink;line.dashed
+rectangle " render() " as r #lightblue
+rectangle "getSnapshotBeforeUpdate(prevProps, prevState)" as gsbu
+rectangle "componentDidUpdate(prevProps, prevState, snapshot)" as cdu
+rectangle empty #transparent;line:transparent;text:transparent
+rectangle "componentWillUnmount()" as cwum
+rectangle "empty  " as em #transparent;line:transparent;text:transparent
+rectangle "static getDerivedStateFromError(error)" as gdsfe
+rectangle "componentDidCatch(error, info)" as cdc
 
-rectangle "componentWillUnmount()\nвызывается непосредственно перед\n размонтированием и удалением компонента." as cwumCom
-
-rectangle "getDerivedStateFromError(error)\nметод жизненного цикла\n вызывается после возникновения\n ошибки у компонента-потомка." as gdsfeCom
-rectangle "componentDidCatch(error, info)\nметод жизненного цикла\n вызывается после возникновения\n ошибки у компонента-потомка." as cdcCom
-
-conCom -[hidden]-> gdsfpCom
-gdsfpCom -[hidden]-> cwmCom
-cwmCom -[hidden]-> renCom
-renCom -[hidden]-> cdmCom
-cdmCom -[hidden]-> cwrpCom
-cwrpCom -[hidden]-> scuCom
-scuCom -[hidden]-> cwuCom
-conCom -[hidden]> gsbuCom
-gsbuCom -[hidden]-> cduCom
-cduCom -[hidden]-> cwumCom
-cwumCom -[hidden]-> gdsfeCom
-gdsfeCom -[hidden]-> cdcCom
-
+con --> gdsfp1
+gdsfp1 --> cwm : " deprecated"
+cwm --> ren
+ren --> cdm
+cdm --> run
+run --> gdsfp : props changed
+run --> scu : state changed
+gdsfp --> cwrp
+cwrp --> scu
+scu --> run : false
+scu --> cwu : " true"
+cwu --> r
+r --> gsbu
+gsbu --> cdu : snapshot
+cdu --> run
+@enduml
 }
 ```
 
