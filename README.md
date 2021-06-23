@@ -150,10 +150,10 @@ cwm --> ren
 ren --> cdm
 cdm --> run
 run --> gdsfp : " props changed"
-run --> scu : "state changed"
+run --> scu : "    state changed"
 gdsfp --> cwrp : "deprecated"
 cwrp --> scu
-scu -R-> space : "false"
+scu -R-> space : "false" do not update
 space -U-> run
 scu --> cwu : "  true"
 cwu --> r
@@ -168,4 +168,4 @@ gdsfe --> cdc
 @enduml
 ```
 
-![test](http://www.plantuml.com/plantuml/png/fLLDRzim3BthLn3f9GMIOkrXXnOOsgRRJWE6jCKkkwWIOnkH9O6IcWN3_lj4oswSeUaoxE9O9Dzx_A2Lwn0bnTGQ4TQDzP9a2uGgIbiPX9zYwPBL2qSM2IxUYL1BxJQDhM0bJK3nIunmfh4Ojnx1ExFbmsi-Hx5s8uSaSfk7kb5hYo70-v7hXbqBPnp1dQJrPvBRaLVZIYOJ7_17l35DPLkq4LH-80cnAs6Yd0sHaegEffwS3wSJa06oUHmLeeoDWWhZ7LBpZFe-6_0JkVOhOmfo1Xo6XQ3IOUNFuSHBWnKXsdtHrZkBDdvhZFdYaetJNdRJPaXZrrVSaJCjGurwZ2Iq6gcFpWSuoSNLySaaV5NWhj5x_BeTXosJjNbQtssict0s586ngsvwEeEL8uMFNlEnrqnPS-csqjncpQkO-tkvgPku9myzCGoGyoCmBw0NrCKHg7-Q3En6SynabgWmKnOYc_Mxjs5IvDyULQXTCden49OkxcXcmA_tkuq9AkrLLenUAZoOu5yvrIQzdIGC2zKt_S0-LNadhFIvf7YBAqV3JdZ2vrwPNqVALNXAXpRo3N2ULAypBEoO1LiVjt0IIThS6CfiNLsNOmFloTXmk7cstVloKZiEBLAbAzZ-X-RX1Vr8v6YA_DpT6GS_uuMCgYxHCsZioWqDKa8ePs4-_z1VEgByiAMxK2vp5Hfzvit2UYBOnZxgLhyW-M9GkhUdR4yZnewX-v10rJar9Xa2WahivYfnvosmaW1r-Fq4o0zWmGJp9HzurJcq---OY7AUF_OPSLmXx0G18YLahc8cGVnRzeuVVLaSFAoKu2CJ5Yt1HGnjIgLFgIn5nrkwKUwXFqSkElFG8UomgcwCXfUPGJUhqWliir7Y6grEhVaD)
+![test](http://www.plantuml.com/plantuml/png/fLLDJnin4BtxLupW4gG45GuzW5G1eUsfKXL0lVHYxCck5QzjZMtIgEf_hpzsoMv5A5KlczsPUMy-vjcvye5JY9rcVgECuyGx81I1cqOZ_6Gh6urSMZ98SFwE-PPBkrMcWJNN7jalDi9fPJ3i78ApUfS_Nl9P2gqTEJYHtTwtIcmCUW_lHwxhx5fQRGbkEMq-4z-Dl1BNFEfmZp_2jLQDwT044Ec1nDY-XIDXZGyKHR0qSsITFpa2xY6Pnr4-yA04D1XkaTGJohjam4zakwyPKv5pyDbQ2Hhfr-uCZXtNs12YcIRjd3LemZUbzHSRJPZrQRTTWYYpkSmJEPNSjoZ7I48ZaVhez077gRasFEg8BoQuLNB2Bxjns2eQaxRrtOHM-TEX2Gobkzd97DQM13uuMJvhpfXohkoEwvkKypAa-LviMnKcwQ4dXW5ozWRCC-WPTVu6r3zj1lQhUSjcLYWmKLOYa_ANjs5Jv5vVbMzjr78v4DOfxcdca5_lzehn8auwgqR71HuiyA-SOXjVBn86GVL3Fw2d9cd2S9TQ2ZUOH35emX4-zPdpwoXpun_Z8KM-0awRwlCCWXspOEV23eu3SPC6Gucjz7KnDcITZ0s7XsUwoScBawDHKzMfOFSVEGyBz2EHfHdcv_xEE7YCbpo8jaRFGPcr7GOa61FMm6BneRzqMFqfbdoXNAGk9Bh4cnBB8vPjsKT5-XMPBmOXUtjCzZXYB0pb885eKscPP0Zm8XOtG3rZ-uWAhKLGuPWMGMuWO9baiSeVMUuvjFn_fB8j61iW5i6mwbqyr1ehgj3t9GIAc9chcHZbtwh4_EWRpS63o5Zwh8JreEMsXi75EhbOPL9uwtpgpVId25Wn3pF3WXMjqXAUjmXbUtKos5SZs1KQ6Jlz6m00)
